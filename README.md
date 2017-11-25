@@ -21,10 +21,12 @@ The goals / steps of this project are the following:
 
 
 [//]: # (Image References)
-[Training_data]: ./plots/Distribution_in_Training_data_nov17.png "Label distribution in training data set"
-[Validation_data]: ./plots/Distribution_in_Validation_data_nov17.png "Label distribution in validation data set"
-[Test_data]: ./plots/Distribution_in_Training_data_nov17.png "Label distribution in test data set"
-[Augmented_Training_data]: ./plots/Distribution_in_Augmented_Training_data_nov17.png "Label distribution in augmented training data set"
+[Training_data]: ./Plots/Distribution_in_Training_data_nov17.png "Label distribution in training data set"
+[Validation_data]: ./Plots/Distribution_in_Validation_data_nov17.png "Label distribution in validation data set"
+[Test_data]: ./Plots/Distribution_in_Training_data_nov17.png "Label distribution in test data set"
+[Augmented_Training_data]: ./Plots/Distribution_in_Augmented_Training_data_nov17.png "Label distribution in augmented training data set"
+[100_Yield_signs]: ./Plots/100_Yield_signs.png "100 examples of Yield signs from the training data set"
+[Traffic_signs_for_each_label]: ./Plots/Traffic_signs_for_each_label.png "One traffic signs for each label"
 [image1]: ./examples/visualization.jpg "Visualization"
 [image2]: ./examples/grayscale.jpg "Grayscaling"
 [image3]: ./examples/random_noise.jpg "Random Noise"
@@ -57,14 +59,24 @@ signs data set:
 * The shape of a traffic sign image is **(32, 32, 3)**
 * The number of unique classes/labels in the data set is **43**
 
-(the code can be found in [3] in the jyputer notebook)
+(the code can be found in [3] in the [project code](https://github.com/Chrasmus/SDCN_Nov17_T1_P2_Traffic_Sign_Classifier/blob/master/Traffic_Sign_Classifier.ipynb))
 
 
 ####2. Include an exploratory visualization of the dataset.
 
-Here is an exploratory visualization of the data set. It is a bar chart showing how the data for the training, validation, and test data sets:
+Here is an exploratory visualization of the data set. It is bar charts showing the distributions of the labels in the training, validation, and test data sets:
 
+Training data set
 ![alt text][Training_data]
+
+Validation data set
+![alt text][Validation_data]
+
+Test data set
+![alt text][Test_data]
+
+(the code can be found in [8] and [9] in the [project code](https://github.com/Chrasmus/SDCN_Nov17_T1_P2_Traffic_Sign_Classifier/blob/master/Traffic_Sign_Classifier.ipynb))
+
 
 ###Design and Test a Model Architecture
 
