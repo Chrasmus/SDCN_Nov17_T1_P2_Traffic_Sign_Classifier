@@ -21,8 +21,10 @@ The goals / steps of this project are the following:
 
 
 [//]: # (Image References)
-
-[Training data]: ./plots/Distribution in Training data nov17.png "Label distribution in training set"
+[Training_data]: ./plots/Distribution_in_Training_data_nov17.png "Label distribution in training data set"
+[Validation_data]: ./plots/Distribution_in_Validation_data_nov17.png "Label distribution in validation data set"
+[Test_data]: ./plots/Distribution_in_Training_data_nov17.png "Label distribution in test data set"
+[Augmented_Training_data]: ./plots/Distribution_in_Augmented_Training_data_nov17.png "Label distribution in augmented training data set"
 [image1]: ./examples/visualization.jpg "Visualization"
 [image2]: ./examples/grayscale.jpg "Grayscaling"
 [image3]: ./examples/random_noise.jpg "Random Noise"
@@ -62,7 +64,7 @@ signs data set:
 
 Here is an exploratory visualization of the data set. It is a bar chart showing how the data for the training, validation, and test data sets:
 
-![alt text][Training data]
+![alt text][Training_data]
 
 ###Design and Test a Model Architecture
 
