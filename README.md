@@ -1,15 +1,15 @@
-#**Traffic Sign Recognition**
+# **Traffic Sign Recognition**
 
-##Writeup
+## Writeup
 
-###Udacity Course, October 2017 cohort
+### Udacity Course, October 2017 cohort
 
-**Self-Driving Car Engineer Nanodegree Program
+** Self-Driving Car Engineer Nanodegree Program
 
-**Project 'Traffic Sign Classifier', November 2017
+** Project 'Traffic Sign Classifier', November 2017
 ---
 
-**Build a Traffic Sign Recognition Project**
+** Build a Traffic Sign Recognition Project**
 
 The goals / steps of this project are the following:
 * Load the data set (see below for links to the project data set)
@@ -54,15 +54,15 @@ signs data set:
 * The shape of a traffic sign image is **(32, 32, 3)**
 * The number of unique classes/labels in the data set is **43**
 
-(the code can be found i [3])
+(the code can be found in [3] in the jyputer notebook)
 
 
 ####2. Include an exploratory visualization of the dataset.
 
 Here is an exploratory visualization of the data set. It is a bar chart showing how the data ...
 
-![alt text][image1]
-![Training data]: ./plots/Distribution in Training data nov17.png "Label distribution in training set"
+[alt text][image1]
+[Training data]: ./plots/Distribution in Training data nov17.png "Label distribution in training set"
 
 ###Design and Test a Model Architecture
 
