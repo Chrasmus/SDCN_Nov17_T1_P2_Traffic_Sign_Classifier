@@ -23,7 +23,7 @@ The goals / steps of this project are the following:
 [//]: # (Image References)
 [Training_data]: ./Plots/Distribution_in_Training_data_nov17.png "Label distribution in training data set"
 [Validation_data]: ./Plots/Distribution_in_Validation_data_nov17.png "Label distribution in validation data set"
-[Test_data]: ./Plots/Distribution_in_Training_data_nov17.png "Label distribution in test data set"
+[Test_data]: ./Plots/Distribution_in_Test_data_nov17.png "Label distribution in test data set"
 [Augmented_Training_data]: ./Plots/Distribution_in_Augmented_Training_data_nov17.png "Label distribution in augmented training data set"
 [100_Yield_signs]: ./Plots/100_Yield_signs.png "100 examples of Yield signs from the training data set"
 [Traffic_signs_for_each_label]: ./Plots/Traffic_signs_for_each_label.png "One traffic signs for each label"
