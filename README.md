@@ -128,14 +128,17 @@ My final model consisted of the following layers:
 
 To train the model, I used these hyperparameters:
 
-| Hyperparameter   | Value   | Comments    |
+| Hyperparameter   | Value   |
 |:---------------------:|:---------------------------------------------:|
-| my  | 0 | used in tf.truncated_normal to randomly define variables for the weights and biases for each layer |
-| sigma | 0.1 | same as for my |
-| learning rate | 0.001 | When setting the value to 0.0005, the model didn't perform very well at all (~ 0.04) |
-| epochs | 10 | The validation and the loss peaked at approximately 8-9 epochs |
-| batch size | 128 |   |
+| my  | 0 |
+| sigma | 0.1 |
+| learning rate | 0.001 |
+| epochs | 10 |
+| batch size | 128 |
 
+My and sigma are used in tf.truncated_normal to randomly define variables for the weights and biases for each layer.
+I tried to set the learning rate to 0.0005, which made the model perform very badly (~ 0.04).
+The values for validation and loss peaked at approximately 8-9 epochs.
 The model was run on a big Mac Pro and took 22 minuttes to train.
 
 
