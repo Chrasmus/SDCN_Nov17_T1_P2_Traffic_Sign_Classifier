@@ -30,9 +30,6 @@ The goals / steps of this project are the following:
 [Original_sign]: ./Plots/Original_sign.png "Original sign, label = 1"
 [Augmented_sign]: ./Plots/Augmented_sign.png "Augmented sign, label = 1"
 [Accuracy]: ./Plots/Training_Validation_Loss_Accuracy_CNN_CHR_nov17.png "Training and validation loss and accuracy"
-[image1]: ./examples/visualization.jpg "Visualization"
-[image2]: ./examples/grayscale.jpg "Grayscaling"
-[image3]: ./examples/random_noise.jpg "Random Noise"
 [image4]: ./Extra_Signs/13_Yield_Hamburg.png "Traffic Sign 1"
 [image5]: ./Extra_Signs/17_No_entry_Hamburg.png "Traffic Sign 2"
 [image6]: ./Extra_Signs/27_Pedestrians_Hamburg.png "Traffic Sign 3"
@@ -150,7 +147,7 @@ My final model results were:
 * validation set accuracy of 0.947
 * test set accuracy of 0.939
 
-**These accuracies indicate that the model will perform really well on images similar to the ones in the three data sets.**
+These accuracies indicate that the model will perform really well on images similar to the ones in the three data sets.
 
 Training and validation sets accuracy:
 ![alt text][Accuracy]
@@ -175,7 +172,7 @@ The first image might be difficult to classify because ...
 
 #### 2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
 
-Here are the results of the prediction:
+Here are the results of the predictions, which are zero for all of the images:
 
 | Image			        |     Prediction	        					|
 |:---------------------:|:---------------------------------------------:|
@@ -250,3 +247,9 @@ The top five soft max probabilities were
 | .05				            | Children crossing      							          |
 | .07					          | Speed limit (80km/h)											    |
 | .07     			      	| Speed limit (50km/h) 										      |
+
+So why is the prediction so wrong? I have spend quite some time working with this problem, at least half of the time spend on the project has been related to this lack of prediction. In the jupyter notebook (in [7]), I have provide visualization of 300 images of the Yield sign (label=13). Browsing through these images it looks like 'normal daylight signs' are missing, they are biased by dark or superbright or 'foggy' images. I had a look of some of the other labels as well, and it was the same - a notably lack of images with the same light conditions as they have in e.g. Google Streetmap.
+
+When realizing this, I learned the important (and probably intented) lesson from this project, that a data set, that you receive from somewhere else, is prone to have a certain inherited bias. And that a lot of focus should be related to the quality of the data and not so much on the model - it is far easier to build a model than to understand an unknown data set. But this is such a general lesson that I, 55 years old, feels a little intimidated to realize. Because I've been before and I know I will one day again.
+
+That said, I think this has been a great project, and even though I have spend far too much time on it, I have learned a ton of new, interesting stuff. I simply can't get my hands nor my nerd flag down right now :-)
