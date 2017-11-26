@@ -129,6 +129,7 @@ My final model consisted of the following layers:
 To train the model, I used these hyperparameters:
 
 | Hyperparameter   | Value   | Comments    |
+|:---------------------:|:---------------------------------------------:|
 | my  | 0 | used in tf.truncated_normal to randomly define variables for the weights and biases for each layer |
 | sigma | 0.1 | same as for my |
 | learning rate | 0.001 | When setting the value to 0.0005, the model didn't perform very well at all (~ 0.04) |
