@@ -97,7 +97,7 @@ I did not use the suggested formula of normalizing the images using : **(pixel -
 
 I chose to use the LeNet-5 model with a few modifications. I added twice as much depth to two convoluted layer and two DropOuts to the fully connected layers, ending up with a 3x32x32-C12-MP2-C32-MP2-120N-DO-84N-DO-43N, with Relu activations
 
-The code for making predictions on my final model is located in the 14th cell in the Jupyter notebook.
+The code to create model, called 'LeNet2', is located in [14] in the Jupyter notebook.
 
 My final model consisted of the following layers:
 
