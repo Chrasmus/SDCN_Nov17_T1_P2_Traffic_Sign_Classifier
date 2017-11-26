@@ -126,7 +126,15 @@ My final model consisted of the following layers:
 
 #### 3. Describe how you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
 
-To train the model, I used an ....
+To train the model, I used these hyperparameters:
+
+| Hyperparameter   | Value   | Comments    |
+| my  | 0 | used in tf.truncated_normal to randomly define variables for the weights and biases for each layer |
+| sigma | 0.1 | same as for my |
+| learning rate | 0.001 | When setting the value to 0.0005, the model didn't perform very well at all (~ 0.04) |
+| epochs | 10 | The validation and the loss peaked at approximately 8-9 epochs |
+| batch size | 128 | the model was run on a big Mac Pro and took 22 minuttes to train |
+
 
 #### 4. Describe the approach taken for finding a solution and getting the validation set accuracy to be at least 0.93. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
 
