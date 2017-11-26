@@ -29,6 +29,7 @@ The goals / steps of this project are the following:
 [Traffic_signs_for_each_label]: ./Plots/Traffic_signs_for_each_label.png "One traffic signs for each label"
 [Original_sign]: ./Plots/Original_sign.png "Original sign, label = 1"
 [Augmented_sign]: ./Plots/Augmented_sign.png "Augmented sign, label = 1"
+[Accuracy]: ./Plots/Training_Validation_Loss_Accuracy_CNN_CHR_nov17.png "Training and validation loss and accuracy"
 [image1]: ./examples/visualization.jpg "Visualization"
 [image2]: ./examples/grayscale.jpg "Grayscaling"
 [image3]: ./examples/random_noise.jpg "Random Noise"
@@ -145,21 +146,20 @@ The model was run on a big Mac Pro and took 22 minuttes to train.
 #### 4. Describe the approach taken for finding a solution and getting the validation set accuracy to be at least 0.93. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
 
 My final model results were:
-* training set accuracy of ?
-* validation set accuracy of ?
-* test set accuracy of ?
+* training set accuracy of 0.940
+* validation set accuracy of 0.947
+* test set accuracy of 0.939
 
-If an iterative approach was chosen:
-* What was the first architecture that was tried and why was it chosen?
-* What were some problems with the initial architecture?
-* How was the architecture adjusted and why was it adjusted? Typical adjustments could include choosing a different model architecture, adding or taking away layers (pooling, dropout, convolution, etc), using an activation function or changing the activation function. One common justification for adjusting an architecture would be due to overfitting or underfitting. A high accuracy on the training set but low accuracy on the validation set indicates over fitting; a low accuracy on both sets indicates under fitting.
-* Which parameters were tuned? How were they adjusted and why?
-* What are some of the important design choices and why were they chosen? For example, why might a convolution layer work well with this problem? How might a dropout layer help with creating a successful model?
+**These accuracies indicate that the model will perform really well on images similar to the ones in the three data sets.**
 
-If a well known architecture was chosen:
-* What architecture was chosen?
-* Why did you believe it would be relevant to the traffic sign application?
-* How does the final model's accuracy on the training, validation and test set provide evidence that the model is working well?
+Training and validation sets accuracy:
+![alt text][Accuracy]
+
+My approach to building the model was to use the LeNet-5 model and focus on learning how to modify it. This model have good performance om images and could be well suited to be used for categorizing images of traffic signs.
+
+The initial model couldn't give me any better results than 0.753, so I added two DropOuts to the fully connected layers. It didn't improve the results. I had used the **(pixel - 128) / 128** formula to normalize the data, so I found another one **(pixel / 122.5) - 1** in the forums, that boosted the model to return an accuracy of 0.94. As I'm writing this, I think I used ints instead of floats in the first formula, this may be reason why I couldn't improve the models performance. Next I doubled the depth of the two convoluted layers which gave a small improvement in performance (0.963). When I added the augmented (rotated and translated) images, the performance fell to 0.947. And the time to train the model rose from 10 to 22 minuttes.
+
+The model has no signs of overfitting, as the accuracy on both the training set and the validation are high. This is shown in the figure above.
 
 
 ### Test a Model on New Images
