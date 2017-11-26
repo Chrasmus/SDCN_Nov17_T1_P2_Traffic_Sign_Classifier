@@ -178,6 +178,7 @@ The code for making predictions on my final model is located in the 11th cell of
 For the first image, the model is relatively sure that this is a stop sign (probability of 0.6), and the image does contain a stop sign. The top five soft max probabilities were
 
 **1. image (Yield)**
+
 | Probability         	|     Prediction	        					            |
 |:---------------------:|:---------------------------------------------:|
 | .33         			    | Speed limit (30km/h)   									      |
@@ -188,6 +189,7 @@ For the first image, the model is relatively sure that this is a stop sign (prob
 
 
 **2. image (No entry)**
+
 | Probability         	|     Prediction	        					|
 |:---------------------:|:---------------------------------------------:|
 | .37         			| Speed limit (30km/h)   									|
