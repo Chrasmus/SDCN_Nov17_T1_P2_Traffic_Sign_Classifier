@@ -84,40 +84,43 @@ Test data set
 
 #### 1. Describe how you preprocessed the image data. What techniques were chosen and why did you choose these techniques? Consider including images showing the output of each preprocessing technique. Pre-processing refers to techniques such as converting to grayscale, normalization, etc. (OPTIONAL: As described in the "Stand Out Suggestions" part of the rubric, if you generated additional data for training, describe why you decided to generate additional data, how you generated the data, and provide example images of the additional data. Then describe the characteristics of the augmented training set like number of images in the set, number of images for each class, etc.)
 
-As a first step, I decided to convert the images to grayscale because ...
+At first, I decided not to do any augmentation on the training images. Instead I tried to get the model to perform better than the .75, that running the original LeNet-5 model on the untouched (but normalized) training data. After adding more depth to the two convoluted layers and also adding two Drop-outs before the fully connected layer, the model had an accuracy of up to 0.963.
 
-Here is an example of a traffic sign image before and after grayscaling.
+Next step was add augmentated images. I copied each image in the training data set, rotate and translate it randomly, and add it to the training data. This gave me **69598** images, which provide 85% training data and 15% validation data. If I should do the split myself, I would have chosen an 80/20 pct ratio. So this way the training data matches the validation data much better than just using it as is were delivered.
 
-![alt text][image2]
+I did not do any grayscaling as I am convinced that the colors are a very important feature of traffic signs. As I have done some testing on downloaded German traffic signs, with zero predictions (sigh), my afterthoughts has concentrated on how to do a better color augmentation, as this seems to be the key to unlock a better performance on new images. But I'm running out of time in this project, so it will be another time and another project, when I'll dig deep into that world.
 
-As a last step, I normalized the image data because ...
+As a last step, I normalized the image data because the model performs much better with zero-centered data, where the values fall fall within the range -1 and 1.
+I did not use the suggested formula of normalizing the images using : **(pixel - 128) / 128**, because it didn't give any rise in the validations in the model. Instead I found **(pixel / 122.5) - 1** in the forums and It make the model perform much better.
 
-I decided to generate additional data because ...
-
-To add more data to the the data set, I used the following techniques because ...
-
-Here is an example of an original image and an augmented image:
-
-![alt text][image3]
-
-The difference between the original data set and the augmented data set is the following ...
 
 
 #### 2. Describe what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
+
+I chose to use the LeNet-5 model with a few modifications. I added twice as much depth to two convoluted layer and two DropOuts to the fully connected layers, ending up with a 3x32x32-C12-MP2-C32-MP2-120N-DO-84N-DO-43N, with Relu activations
+
+The code for making predictions on my final model is located in the 14th cell in the Jupyter notebook.
 
 My final model consisted of the following layers:
 
 | Layer         		|     Description	        					|
 |:---------------------:|:---------------------------------------------:|
 | Input         		| 32x32x3 RGB image   							|
-| Convolution 3x3     	| 1x1 stride, same padding, outputs 32x32x64 	|
+| Convolution 5x5     	| 1x1 stride, VALID padding, outputs 28x28x12 	|
 | RELU					|												|
-| Max pooling	      	| 2x2 stride,  outputs 16x16x64 				|
-| Convolution 3x3	    | etc.      									|
-| Fully connected		| etc.        									|
-| Softmax				| etc.        									|
-|						|												|
-|						|												|
+| Max pooling	      	| 2x2 stride,  outputs 14x14x12 				|
+| Convolution 5x5     	| 1x1 stride, VALID padding, outputs 10x10x32 	|
+| RELU					|												|
+| Max pooling	      	| 2x2 stride,  outputs 5x5x32 				|
+| Flatten       | Output 800
+| Fully connected		| Output 120        									|
+| RELU					|												|
+| DropOut	      	|   				|
+| Fully connected		| Output 84        									|
+| RELU					|												|
+| DropOut	      	|   				|
+| Fully connected		| Output 43        									|
+| Softmax				|         									|
 
 
 
@@ -173,9 +176,12 @@ The model was not able to correctly guess any of the 5 traffic signs, which give
 
 #### 3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
 
-The code for making predictions on my final model is located in the 11th cell of the Ipython notebook.
+The code for making predictions on my final model is located in the 24th cell in the Jupyter notebook.
 
-For the first image, the model is relatively sure that this is a stop sign (probability of 0.6), and the image does contain a stop sign. The top five soft max probabilities were
+In general, the model is relatively sure that all the signs Speed limit (30km/h) signs (probability between 0.33 and 0.37), but none the selected traffic signs are showing Speed limit signs.
+I observed while running 15-20 models, where the signs in the training data set where shuffled before each model building, that the predictions were very much like this one, with Speed limit (30km/h) coming out as the predicted sign each time. The attempt to augment the training data by means of rotation and translation did not chance this outcome.
+
+The top five soft max probabilities were
 
 **1. image (Yield)**
 
@@ -190,30 +196,43 @@ For the first image, the model is relatively sure that this is a stop sign (prob
 
 **2. image (No entry)**
 
-| Probability         	|     Prediction	        					|
+| Probability         	|     Prediction	        					            |
 |:---------------------:|:---------------------------------------------:|
-| .37         			| Speed limit (30km/h)   									|
-| .07     				| Speed limit (50km/h) 										|
-| .07					| Speed limit (80km/h)											|
-| .06	      			| General caution					 				|
-| .06				    | Children crossing      							|
-
-For the second image ...
+| .37         			    | Speed limit (30km/h)   									      |
+| .07     			      	| Speed limit (50km/h) 										      |
+| .07					          | Speed limit (80km/h)											    |
+| .06	      		      	| General caution					 				              |
+| .06				            | Children crossing      							          |
 
 
-Labels for the signs
-[13 17 27 35 38]
+**3. image (Pedestrians)**
 
-Top 5 lables found by CNN
-[[ 1 18 28 11  5]
- [ 1  2  5 18 28]
- [ 1 28 18  2  5]
- [ 1  5  2 28 18]
- [ 1 18 28  5  2]]
+| Probability         	|     Prediction	        					            |
+|:---------------------:|:---------------------------------------------:|
+| .36         			    | Speed limit (30km/h)   									      |
+| .07				            | Children crossing      							          |
+| .06	      		      	| General caution					 				              |
+| .06     			      	| Speed limit (50km/h) 										      |
+| .06					          | Speed limit (80km/h)											    |
 
-Top 5 softmax probabilities (pct) for the 5 signs
-[[ 33.46339798   7.37484837   7.30221176   5.4497633    5.42591572]
- [ 36.96421432   6.83229399   6.65008116   5.65148783   5.53519344]
- [ 35.54141998   7.28324795   6.18253756   5.79951048   5.57856989]
- [ 35.56390762   6.61592054   6.46356583   6.15054607   5.37721825]
- [ 32.59408569   7.08333635   6.93431854   5.99496126   5.49084044]]
+
+**4. image (Ahead only)**
+
+| Probability         	|     Prediction	        					            |
+|:---------------------:|:---------------------------------------------:|
+| .36         			    | Speed limit (30km/h)   									      |
+| .06					          | Speed limit (80km/h)											    |
+| .07     			      	| Speed limit (50km/h) 										      |
+| .05				            | Children crossing      							          |
+| .06	      		      	| General caution					 				              |
+
+
+**5. image (Keep right)**
+
+| Probability         	|     Prediction	        					            |
+|:---------------------:|:---------------------------------------------:|
+| .33         			    | Speed limit (30km/h)   									      |
+| .06	      		      	| General caution					 				              |
+| .05				            | Children crossing      							          |
+| .07					          | Speed limit (80km/h)											    |
+| .07     			      	| Speed limit (50km/h) 										      |
