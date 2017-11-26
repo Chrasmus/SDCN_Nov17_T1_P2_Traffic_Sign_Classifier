@@ -4,9 +4,9 @@
 
 ### Udacity Course, October 2017 cohort
 
-**Self-Driving Car Engineer Nanodegree Program
+**Self-Driving Car Engineer Nanodegree Program**
 
-**Project 'Traffic Sign Classifier', November 2017
+**Project 'Traffic Sign Classifier', November 2017**
 ---
 
 **Build a Traffic Sign Recognition Project**
