@@ -162,14 +162,14 @@ Here are the results of the prediction:
 
 | Image			        |     Prediction	        					|
 |:---------------------:|:---------------------------------------------:|
-| Stop Sign      		| Stop sign   									|
-| U-turn     			| U-turn 										|
-| Yield					| Yield											|
-| 100 km/h	      		| Bumpy Road					 				|
-| Slippery Road			| Slippery Road      							|
+| Yield					| Speed limit (30km/h)											|
+| No entry      		| Speed limit (30km/h)   									|
+| U-turn     			| Speed limit (30km/h) 										|
+| 100 km/h	      		| Speed limit (30km/h)					 				|
+| Slippery Road			| Speed limit (30km/h)      							|
 
 
-The model was able to correctly guess 4 of the 5 traffic signs, which gives an accuracy of 80%. This compares favorably to the accuracy on the test set of ...
+The model was not able to correctly guess any of the 5 traffic signs, which gives an accuracy of **0%**. This compares favorably to the accuracy on the test set of ...
 
 #### 3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
 
@@ -177,13 +177,41 @@ The code for making predictions on my final model is located in the 11th cell of
 
 For the first image, the model is relatively sure that this is a stop sign (probability of 0.6), and the image does contain a stop sign. The top five soft max probabilities were
 
+**1. image (Yield)**
+| Probability         	|     Prediction	        					            |
+|:---------------------:|:---------------------------------------------:|
+| .33         			    | Speed limit (30km/h)   									      |
+| .07     				      | General caution 										          |
+| .07					          | Children crossing											        |
+| .05	      			      | Right-of-way at the next intersection					|
+| .05				            | Speed limit (80km/h)      							      |
+
+
+**2. image (No entry)**
 | Probability         	|     Prediction	        					|
 |:---------------------:|:---------------------------------------------:|
-| .60         			| Stop sign   									|
-| .20     				| U-turn 										|
-| .05					| Yield											|
-| .04	      			| Bumpy Road					 				|
-| .01				    | Slippery Road      							|
-
+| .37         			| Speed limit (30km/h)   									|
+| .07     				| Speed limit (50km/h) 										|
+| .07					| Speed limit (80km/h)											|
+| .06	      			| General caution					 				|
+| .06				    | Children crossing      							|
 
 For the second image ...
+
+
+Labels for the signs
+[13 17 27 35 38]
+
+Top 5 lables found by CNN
+[[ 1 18 28 11  5]
+ [ 1  2  5 18 28]
+ [ 1 28 18  2  5]
+ [ 1  5  2 28 18]
+ [ 1 18 28  5  2]]
+
+Top 5 softmax probabilities (pct) for the 5 signs
+[[ 33.46339798   7.37484837   7.30221176   5.4497633    5.42591572]
+ [ 36.96421432   6.83229399   6.65008116   5.65148783   5.53519344]
+ [ 35.54141998   7.28324795   6.18253756   5.79951048   5.57856989]
+ [ 35.56390762   6.61592054   6.46356583   6.15054607   5.37721825]
+ [ 32.59408569   7.08333635   6.93431854   5.99496126   5.49084044]]
